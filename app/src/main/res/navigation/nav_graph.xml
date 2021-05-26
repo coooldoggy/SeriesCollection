@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_series_list">
+
+    <fragment
+        android:id="@+id/fragment_series_list"
+        tools:layout="@layout/fragment_series"
+        android:name="com.coooldoggy.seriescollection.ui.view.SeriesFragment">
+        <action
+            android:id="@+id/action_list_to_detail"
+            app:destination="@id/fragment_series_detail_view"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_series_detail_view"
+        tools:layout="@layout/fragment_detail_view"
+        android:name="com.coooldoggy.seriescollection.ui.view.SeriesDetailViewFragment">
+        <action
+            android:id="@+id/action_detail_to_list"
+            app:destination="@+id/fragment_series_list"/>
+
+    </fragment>
+
+
+</navigation>

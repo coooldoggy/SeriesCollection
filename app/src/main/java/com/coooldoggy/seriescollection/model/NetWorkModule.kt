@@ -1,6 +1,7 @@
 package com.coooldoggy.seriescollection.model
 
 import com.coooldoggy.seriescollection.BASE_API_URL
+import com.coooldoggy.seriescollection.BuildConfig
 import com.coooldoggy.seriescollection.model.api.BrowseApiHelper
 import com.coooldoggy.seriescollection.model.api.BrowseApiService
 import com.coooldoggy.seriescollection.model.api.BrowseApiServiceImpl
