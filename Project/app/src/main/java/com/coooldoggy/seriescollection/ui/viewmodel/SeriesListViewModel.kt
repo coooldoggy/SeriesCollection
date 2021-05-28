@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.coooldoggy.seriescollection.model.SeriesRepository
 import com.coooldoggy.seriescollection.model.data.Series
+import com.coooldoggy.seriescollection.ui.view.SeriesAdapter
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -21,6 +22,7 @@ class SeriesListViewModel @Inject constructor(
     private val _seriesList = MutableLiveData<ArrayList<Series>>()
     val seriesList: LiveData<ArrayList<Series>>
         get() = _seriesList
+    val adapter = SeriesAdapter()
 
     init {
         getBrowseList()
@@ -30,6 +32,7 @@ class SeriesListViewModel @Inject constructor(
         viewModelScope.launch {
             val result = repository.browseSeries(currentPage.value ?: 1)
             if (result.isSuccessful){
+                _seriesList.postValue(result.body()?.series)
                 Log.d(TAG, "getBrowseList $result")
             }
         }

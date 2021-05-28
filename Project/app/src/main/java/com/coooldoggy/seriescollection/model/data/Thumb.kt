@@ -13,5 +13,5 @@ data class Thumb(
     val fileSize: Int,
 
     @SerializedName("file_url")
-    val fileUrl: Int
+    val fileUrl: String
 )
