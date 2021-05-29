@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_list_to_detail"
             app:destination="@id/fragment_series_detail_view"/>
+        <argument
+            android:name="series"
+            app:argType="com.coooldoggy.seriescollection.model.data.Series"/>
     </fragment>
 
     <fragment

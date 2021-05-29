@@ -10,6 +10,11 @@ import com.coooldoggy.seriescollection.model.data.Series
 
 class SeriesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
     var seriesList = ArrayList<Series>()
+    var itemClick: ItemClick? = null
+
+    interface ItemClick {
+        fun onClick(view: View, data: Series)
+    }
 
     fun setData(response: ArrayList<Series>, isLoadMore: Boolean){
         val currentItemCount = seriesList.size
@@ -33,6 +38,9 @@ class SeriesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
         holder.apply {
             ivCover.clipToOutline = true
             bind(item)
+            itemView.setOnClickListener {
+                itemClick?.onClick(it, item)
+            }
             setImgUrl(item.bookCoverUrl ?: item.thumb.fileUrl)
         }
     }

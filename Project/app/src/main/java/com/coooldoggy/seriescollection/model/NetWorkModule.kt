@@ -2,9 +2,9 @@ package com.coooldoggy.seriescollection.model
 
 import com.coooldoggy.seriescollection.BASE_API_URL
 import com.coooldoggy.seriescollection.BuildConfig
-import com.coooldoggy.seriescollection.model.api.BrowseApiHelper
-import com.coooldoggy.seriescollection.model.api.BrowseApiService
-import com.coooldoggy.seriescollection.model.api.BrowseApiServiceImpl
+import com.coooldoggy.seriescollection.model.api.ApiHelper
+import com.coooldoggy.seriescollection.model.api.ApiService
+import com.coooldoggy.seriescollection.model.api.ApiServiceImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,11 +29,11 @@ object NetWorkModule {
 
     @Provides
     @Singleton
-    fun provideApiService(retrofit: Retrofit) = retrofit.create(BrowseApiService::class.java)
+    fun provideApiService(retrofit: Retrofit) = retrofit.create(ApiService::class.java)
 
     @Provides
     @Singleton
-    fun provideApiHelper(browseApiServiceImpl: BrowseApiServiceImpl): BrowseApiHelper = browseApiServiceImpl
+    fun provideApiHelper(apiServiceImpl: ApiServiceImpl): ApiHelper = apiServiceImpl
 
     @Singleton
     @Provides

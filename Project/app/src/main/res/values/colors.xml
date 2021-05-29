@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="fav_color">#777777</color>
     <color name="dim">#33000000</color>
+    <color name="colorTransparent">#00000000</color>
+    <color name="color_f8f9fb">#F8F9FB</color>
 </resources>

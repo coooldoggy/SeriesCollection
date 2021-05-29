@@ -1,6 +1,7 @@
 package com.coooldoggy.seriescollection.model.data
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Series(
     @SerializedName("id")
@@ -71,6 +72,4 @@ data class Series(
 
     @SerializedName("rect_banner_url")
     val rectBannerUrl: String?
-
-
-    )
+    ): Serializable

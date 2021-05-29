@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.coooldoggy.seriescollection.model.SeriesRepository
+import com.coooldoggy.seriescollection.model.MainRepository
 import com.coooldoggy.seriescollection.model.data.Pagination
 import com.coooldoggy.seriescollection.model.data.Series
 import com.coooldoggy.seriescollection.ui.view.SeriesAdapter
@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SeriesListViewModel @Inject constructor(
-    private val repository: SeriesRepository): ViewModel() {
+    private val repository: MainRepository): ViewModel() {
     private val TAG = SeriesListViewModel::class.java.simpleName
     private val _currentPage = MutableLiveData<Int>(1)
     private val currentPage : LiveData<Int>
@@ -42,12 +42,13 @@ class SeriesListViewModel @Inject constructor(
                 hideProgressBar()
                 return@launch
             }
-
-            val result = repository.browseSeries(currentPage.value ?: 1)
-            if (result.isSuccessful){
-                result.body()?.pagination?.let { setNextPage(it) }
-                _seriesList.postValue(result.body()?.series)
-                Log.d(TAG, "getBrowseList $result")
+            kotlin.runCatching {
+                val result = repository.browseSeries(currentPage.value ?: 1)
+                if (result.isSuccessful){
+                    result.body()?.pagination?.let { setNextPage(it) }
+                    _seriesList.postValue(result.body()?.series)
+                    Log.d(TAG, "getBrowseList $result")
+                }
             }
             hideProgressBar()
         }

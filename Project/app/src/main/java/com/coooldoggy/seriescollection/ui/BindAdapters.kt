@@ -4,13 +4,18 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
-import kotlin.math.roundToInt
+import com.coooldoggy.seriescollection.model.data.Creator
+import kotlinx.coroutines.flow.asFlow
+import java.lang.StringBuilder
 
 object BindAdapters {
 
     @BindingAdapter("imageUrl")
     @JvmStatic
-    fun loadImage(view: ImageView, url: String) {
+    fun loadImage(view: ImageView, url: String?) {
+        if (url.isNullOrEmpty()){
+            return
+        }
         Glide.with(view.context).load(url)
             .centerCrop()
             .into(view)
@@ -20,6 +25,14 @@ object BindAdapters {
     @JvmStatic
     fun setCountText(view: TextView, likeCnt: Int) {
         view.text = likeCnt.toLong().formatToShortNumber()
+    }
+
+    @BindingAdapter("creatorName")
+    @JvmStatic
+    fun setCreator(view: TextView, creators: ArrayList<Creator>) {
+        val creatorString = creators.joinToString {
+            "${it.uname}"}
+        view.text = creatorString
     }
 
     private fun Long.formatToShortNumber(): String {
