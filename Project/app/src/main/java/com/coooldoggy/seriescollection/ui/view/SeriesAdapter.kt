@@ -11,6 +11,16 @@ import com.coooldoggy.seriescollection.model.data.Series
 class SeriesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
     var seriesList = ArrayList<Series>()
 
+    fun setData(response: ArrayList<Series>, isLoadMore: Boolean){
+        val currentItemCount = seriesList.size
+        seriesList.addAll(response)
+        if (isLoadMore){
+            notifyItemRangeInserted(currentItemCount, seriesList.size)
+        }else{
+            notifyDataSetChanged()
+        }
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.item_series, parent, false)

@@ -19,15 +19,15 @@ object BindAdapters {
     @BindingAdapter("likeCount")
     @JvmStatic
     fun setCountText(view: TextView, likeCnt: Int) {
-        val mill = 1000000.0
-        val klio = 1000.0
-        if (likeCnt >= mill){
-            val count = likeCnt.div(mill)
-            view.text = "${(count * 10).roundToInt()}M"
-        }else{
-            val count = likeCnt.div(klio)
-            view.text = "${(count * 10).roundToInt()}K"
-        }
+        view.text = likeCnt.toLong().formatToShortNumber()
     }
 
+    private fun Long.formatToShortNumber(): String {
+        return when {
+            this >= 1000000000 -> String.format("%.1fB", this / 1000000000.0)
+            this >= 1000000 -> String.format("%.1fM", this / 1000000.0)
+            this >= 1000 -> String.format("%.1fK", this / 1000.0)
+            else -> this.toString()
+        }
+    }
 }
