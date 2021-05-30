@@ -1,6 +1,7 @@
 package com.coooldoggy.seriescollection.model.data
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Series(
     @SerializedName("id")
@@ -19,13 +20,13 @@ data class Series(
     val thumb: Thumb,
 
     @SerializedName("book_cover_url")
-    val bookCoverUrl: String,
+    val bookCoverUrl: String?,
 
     @SerializedName("creators")
     val creators: ArrayList<Creator>,
 
     @SerializedName("age_rating")
-    val ageRating: Int,
+    val ageRating: Int?,
 
     @SerializedName("rgb_hex")
     val rgbHex: String,
@@ -64,13 +65,11 @@ data class Series(
     val blurb: String,
 
     @SerializedName("sub_title")
-    val subTitle: String,
+    val subTitle: String?,
 
     @SerializedName("genre")
     val genre: Genre,
 
     @SerializedName("rect_banner_url")
-    val rectBannerUrl: String
-
-
-    )
+    val rectBannerUrl: String?
+    ): Serializable

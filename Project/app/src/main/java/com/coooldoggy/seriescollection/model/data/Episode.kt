@@ -37,10 +37,10 @@ data class Episode(
     val nu: Boolean,
 
     @SerializedName("early_access")
-    val earlyAccess: Boolean,
+    val earlyAccess: Boolean?,
 
     @SerializedName("support_supporting_ad")
-    val supportSupportingAd: Boolean,
+    val supportSupportingAd: Boolean?,
 
     @SerializedName("view_cnt")
     val viewCnt: Int,
