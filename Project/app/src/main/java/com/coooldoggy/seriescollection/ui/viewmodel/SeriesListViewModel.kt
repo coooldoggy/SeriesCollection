@@ -1,6 +1,5 @@
 package com.coooldoggy.seriescollection.ui.viewmodel
 
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -47,7 +46,6 @@ class SeriesListViewModel @Inject constructor(
                 if (result.isSuccessful){
                     result.body()?.pagination?.let { setNextPage(it) }
                     _seriesList.postValue(result.body()?.series)
-                    Log.d(TAG, "getBrowseList $result")
                 }
             }
             hideProgressBar()
