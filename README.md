@@ -7,11 +7,11 @@
 
 ## ScreenShot
 
-<img src="images/screenshot1.jpg" style="zoom:50%;" />
+<img src="images/screenshot1.jpg" style="zoom:30%;" />
 
-<img src="images/screenshot2.jpg" alt="screenshot2" style="zoom:50%;" />
+<img src="images/screenshot2.jpg" alt="screenshot2" style="zoom:30%;" />
 
-<img src="images/screenshot3.jpg" alt="screenshot3" style="zoom:50%;" />
+<img src="images/screenshot3.jpg" alt="screenshot3" style="zoom:30%;" />
 
 ![](images/header.gif)
 
