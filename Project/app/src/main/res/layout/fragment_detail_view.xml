@@ -7,6 +7,7 @@
     </data>
 
     <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/ml_detail"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
@@ -38,6 +39,7 @@
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:text="@{model.seriesItem.title}"
+                android:visibility="invisible"
                 android:textSize="16dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@id/noname1"
