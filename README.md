@@ -22,7 +22,7 @@
 - 이미지 처리 : Glide
 - Network: Retrofit2, Okhttp 
 - Dependency Injection: Hilt
-- Concurrency : Coroutines 
+- 비동기 : Coroutines 
 
 
 
